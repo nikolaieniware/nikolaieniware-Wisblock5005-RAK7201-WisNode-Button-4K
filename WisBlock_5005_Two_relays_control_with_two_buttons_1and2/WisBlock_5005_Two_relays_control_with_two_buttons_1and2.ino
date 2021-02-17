@@ -6,7 +6,10 @@
  * Ver. 1.1
  * Click Button 1 one time Relay one(1) -> ON 
  * Click Button 1 one time Relay one(1) -> OFF
- *
+ 
+ * Click Button 2 one time Relay two(2) -> ON
+ * Click Button 2 one time Relay two(2) -> OFF
+ 
  * @note RAK5005-O GPIO mapping to RAK4631 GPIO ports
  * IO1 <-> P0.17 (Arduino GPIO number 17)
  * IO2 <-> P1.02 (Arduino GPIO number 34)
