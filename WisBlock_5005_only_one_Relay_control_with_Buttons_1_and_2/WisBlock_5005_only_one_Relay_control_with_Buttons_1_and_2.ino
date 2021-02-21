@@ -56,14 +56,13 @@ static lmh_callback_t lora_callbacks = {BoardGetBatteryLevel, BoardGetUniqueId, 
                     lorawan_rx_handler, lorawan_has_joined_handler, lorawan_confirm_class_handler};
 
 //OTAA keys
-uint8_t nodeDeviceEUI[8] = { 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x33, 0x33 };
+uint8_t nodeDeviceEUI[8] = { 0x73, 0xe3, 0x11, 0xc4, 0x63, 0x47, 0xca, 0xd0 };
 uint8_t nodeAppEUI[8] = { 0x73, 0xe3, 0x11, 0xc4, 0x63, 0x47, 0xca, 0xd0 };
 uint8_t nodeAppKey[16] = { 0xa6, 0xa5, 0x72, 0xbb, 0x99, 0xb4, 0xaf, 0x46, 0x8e, 0x64, 0x90, 0xf6, 0xe9, 0xe0, 0x0e, 0x5b };
 
-
 // Private defination
 #define LORAWAN_APP_DATA_BUFF_SIZE 64                     /**< buffer size of the data to be transmitted. */
-#define LORAWAN_APP_INTERVAL 20000                        /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
+#define LORAWAN_APP_INTERVAL 1000                /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
 static uint8_t m_lora_app_data_buffer[LORAWAN_APP_DATA_BUFF_SIZE];        //< Lora user application data buffer.
 static lmh_app_data_t m_lora_app_data = {m_lora_app_data_buffer, 0, 0, 0, 0}; //< Lora user application data structure.
 
@@ -73,6 +72,7 @@ static uint32_t count = 0;
 static uint32_t count_fail = 0;
 
 int IO1 = 17;     //IO1 see comments in begining of the sketch 
+int IO2 = 34;
 
 void setup()
 {
@@ -81,10 +81,12 @@ void setup()
 
  // ++++++++ ADD_PINS_FOR_1_RELAY +++++
   pinMode(IO1, OUTPUT);       //1st Relay   Output
+ 
 
   // +++++ SET_START_MODE_FOR_1_RELAY_PIN+++++
   
   digitalWrite(IO1, LOW);     //1st Relay
+  
   
   // Initialize LoRa chip.
   lora_rak4630_init();
@@ -184,7 +186,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
   case 1:
     if (app_data->port == 1){
        digitalWrite(LED_BUILTIN, HIGH);
-       delay(500);    // Internal LED => ON for 500
+       delay(500);    // Internal LED => OFF for 500
        digitalWrite(LED_BUILTIN, LOW);
       digitalWrite(IO1, HIGH);  //I01 (17) High 
       Serial.printf("IO1_HIGH");  
@@ -196,7 +198,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
   case 2:
     if (app_data->port == 2){
        digitalWrite(LED_BUILTIN, HIGH);
-       delay(500);     // Internal LED => OFF for 500
+       delay(500);     // Internal LED => OFF after 500
        digitalWrite(LED_BUILTIN, LOW);
       digitalWrite(IO1, LOW);   //I01 (17) Low
       Serial.printf("IO1_LOW");
