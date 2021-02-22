@@ -230,7 +230,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
     
    case 2:
     if (app_data->port == 2){
-       digitalWrite(IO2, LOW);
+       digitalWrite(IO2, HIGH);
         }
     if (hardcode==HIGH && statuss==0){
       statuss=1;
