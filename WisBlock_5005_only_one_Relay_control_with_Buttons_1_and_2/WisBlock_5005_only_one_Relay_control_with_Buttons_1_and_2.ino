@@ -62,7 +62,7 @@ uint8_t nodeAppKey[16] = { 0xa6, 0xa5, 0x72, 0xbb, 0x99, 0xb4, 0xaf, 0x46, 0x8e,
 
 // Private defination
 #define LORAWAN_APP_DATA_BUFF_SIZE 64                     /**< buffer size of the data to be transmitted. */
-#define LORAWAN_APP_INTERVAL 2000                /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
+#define LORAWAN_APP_INTERVAL 20000                /**< Defines for user timer, the application data transmission interval. 20s, value in [ms]. */
 static uint8_t m_lora_app_data_buffer[LORAWAN_APP_DATA_BUFF_SIZE];        //< Lora user application data buffer.
 static lmh_app_data_t m_lora_app_data = {m_lora_app_data_buffer, 0, 0, 0, 0}; //< Lora user application data structure.
 
