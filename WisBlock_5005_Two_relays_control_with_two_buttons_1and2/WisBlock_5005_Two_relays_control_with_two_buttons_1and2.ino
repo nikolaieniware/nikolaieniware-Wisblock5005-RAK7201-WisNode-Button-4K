@@ -182,7 +182,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
 	Serial.printf("LoRa Packet received on port %d, size:%d, rssi:%d, snr:%d, data:%s\n",
 				  app_data->port, app_data->buffsize, app_data->rssi, app_data->snr, app_data->buffer);
 
-    switch (app_data         ->port)
+    switch (app_data->port)
     {
      case 1:
       if (app_data->port == 1){
