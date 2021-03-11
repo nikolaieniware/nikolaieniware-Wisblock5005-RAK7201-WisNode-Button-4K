@@ -73,7 +73,7 @@ static uint32_t count = 0;
 static uint32_t count_fail = 0;
 
 
-int IO1 = 17: //see coments in begining of  the sketch 
+int IO1 = 17; //see coments in begining of  the sketch 
 
 void setup()
 {
