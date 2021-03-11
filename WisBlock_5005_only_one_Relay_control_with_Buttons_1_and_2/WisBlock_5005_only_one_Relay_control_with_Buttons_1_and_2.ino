@@ -220,7 +220,7 @@ void tx_lora_periodic_handler(void)
 	TimerSetValue(&appTimer, LORAWAN_APP_INTERVAL);
 	TimerStart(&appTimer);
 	Serial.println("Listening… for Downlink");
-	send_lora_frame();
+
 }
 
 /**@brief Function for the Timer initialization.
