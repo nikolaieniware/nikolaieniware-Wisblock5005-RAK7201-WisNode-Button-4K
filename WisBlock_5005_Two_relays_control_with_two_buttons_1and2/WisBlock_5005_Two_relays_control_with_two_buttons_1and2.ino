@@ -192,7 +192,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
         digitalWrite(IO1, HIGH);
-        Serial.printf("IO1_LOW");
+        Serial.println("IO1_LOW");
         hardcodeIO1=HIGH;
         }
         
@@ -201,7 +201,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
         digitalWrite(IO1, LOW);
-        Serial.printf("IO1_HIGH"); 
+        Serial.println("IO1_HIGH"); 
         hardcodeIO1=LOW;
       }
        break; 
@@ -214,7 +214,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
         digitalWrite(IO2, HIGH);
-        Serial.printf("IO2_LOW");
+        Serial.println("IO2_LOW");
         hardcodeIO2=HIGH;
         }
         
@@ -223,7 +223,7 @@ void lorawan_rx_handler(lmh_app_data_t *app_data)
         delay(500);
         digitalWrite(LED_BUILTIN, LOW);
         digitalWrite(IO2, LOW);
-        Serial.printf("IO2_HIGH"); 
+        Serial.println("IO2_HIGH"); 
         hardcodeIO2=LOW;
       }
      break;
